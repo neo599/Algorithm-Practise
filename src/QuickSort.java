@@ -6,7 +6,7 @@ import java.util.*;
 class QuickSort {
     public static void main(String[] args) {
         int[] nums = new int[]{2,8,7,1,3,5,6,4};
-        quickSort(nums, 0, nums.length);
+        quickSort(nums, 0, nums.length - 1);
 
         System.out.println("final result: " + Arrays.toString(nums));
     }
@@ -21,21 +21,17 @@ class QuickSort {
     }
 
     public static int partition(int[]nums, int left, int right) {
-        int pivot = left;
-        if (left < right) {
-            int pivotNum = nums[left];
-
-            for (int i = left; i < right; i++) {
-                if (i > pivot && nums[i] < pivotNum) {
-                    pivot++;
-                    swap(nums, pivot, i);
-                    i--;
-                }
+        int pivot = nums[right];
+        int partition = left;
+        for (int i = left; i < right; i++) {
+            if (nums[i] <= pivot) {
+                swap(nums, partition++, i);
             }
-            swap(nums, pivot, left);
         }
+        swap(nums, partition, right);
+
         System.out.println(Arrays.toString(nums));
-        return pivot;
+        return partition;
     }
 
     public static void swap(int[]nums, int pos1, int pos2) {
