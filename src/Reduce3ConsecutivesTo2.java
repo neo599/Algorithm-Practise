@@ -1,6 +1,6 @@
 class Reduce3ConsecutivesTo2 {
     public static void main(String[] args) {
-        String str1 = "abbaabaaaba";
+        String str1 = "baaabbabbb";
         String str2 = "aaaa";
 
         printResult(str1);
@@ -54,6 +54,6 @@ class Reduce3ConsecutivesTo2 {
     }
 
     public static void printResult(String s) {
-        System.out.println(s + " -> " + reduceConsecutiveLetters(s) + " " + (reduceConsecutiveLetters(s).length() == getLengthWithout3Consecutive(s)));
+        System.out.println(s + " -> " + reduceConsecutiveLetters(s) + " " + getLengthWithout3Consecutive(s) + (reduceConsecutiveLetters(s).length() == getLengthWithout3Consecutive(s)));
     }
 }
